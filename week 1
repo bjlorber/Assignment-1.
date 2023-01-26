@@ -1,0 +1,47 @@
+> install.packages("ggplot2")
+trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.2/ggplot2_3.4.0.tgz'
+Content type 'application/x-gzip' length 4211307 bytes (4.0 MB)
+==================================================
+downloaded 4.0 MB
+
+
+The downloaded binary packages are in
+	/var/folders/x_/9lr9j44n1cdd78pw2yp2b7fw0000gn/T//RtmpLOhUm5/downloaded_packages
+> install.package("dplyr")
+Error in install.package("dplyr") : 
+  could not find function "install.package"
+> install.packages("dplyr")
+trying URL 'https://cran.rstudio.com/bin/macosx/contrib/4.2/dplyr_1.0.10.tgz'
+Content type 'application/x-gzip' length 1310338 bytes (1.2 MB)
+==================================================
+downloaded 1.2 MB
+
+
+The downloaded binary packages are in
+	/var/folders/x_/9lr9j44n1cdd78pw2yp2b7fw0000gn/T//RtmpLOhUm5/downloaded_packages
+> #Note, Each gray box below is a code chunk. You need to insert a code chunk and put your R code in it. By setting echo = FALSE. this comment and any code will not show in my output document. If it were TRUE, the comment and code would appear. 
+> #The include = FALSE function hides both the code and output in my output document
+> 
+> #You need to install these packages first to be able to use the functions within them. You can install them from the Tools tab or write a new code chunk: install.packages("package_name"). 
+> library(ggplot2)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> #this next line is creating a subset called 'small' of the diamonds data
+> small <- diamonds %>% 
++   filter(carat <= 2)
+> #This next chunk is inline code. Inline code puts the text with the output of the function in my document.
+> #This next code chunk will make a plot in our output doc
+> small %>% 
++   ggplot(aes(carat)) + 
++   geom_freqpoly(binwidth = 0.01)
+> #Once all of my code has been written, I click on the Knit button in the tool bar above to produce my document.
